@@ -64,6 +64,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Run SonarCloud scan
         uses: SonarSource/sonarqube-scan-action@v6
