@@ -96,10 +96,10 @@ jobs:
   review:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Run SonarCloud scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io
@@ -142,6 +142,10 @@ Onde encontrar cada valor no SonarCloud:
 - `SONARCLOUD_PROJECT_KEY`: use a chave do projeto nas configurações do projeto, geralmente em **Project Information** ou **General Settings**.
 
 Se você não tiver acesso à organização ou ao projeto no SonarCloud, peça esses valores para quem administra o workspace.
+
+Erro comum no CI:
+
+- Se o job falhar com `You are running CI analysis while Automatic Analysis is enabled`, desative o **Automatic Analysis** no SonarCloud para esse projeto em **Project Settings > General Settings > Analysis Method** e mantenha apenas o fluxo via GitHub Actions.
 
 Se você quiser que o SonarCloud também faça a decoração nativa do PR, isso acontece no próprio pipeline de análise do SonarCloud; este repositório apenas lê a API e publica os comentários.
 
