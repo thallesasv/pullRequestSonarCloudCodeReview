@@ -135,6 +135,14 @@ A action requer:
 
 Para habilitar o fluxo, crie os segredos `SONARCLOUD_TOKEN`, `SONARCLOUD_ORGANIZATION` e `SONARCLOUD_PROJECT_KEY` em **Settings > Secrets and variables > Actions** do repositório.
 
+Onde encontrar cada valor no SonarCloud:
+
+- `SONARCLOUD_TOKEN`: gere em **My Account > Security > Generate Tokens** no SonarCloud.
+- `SONARCLOUD_ORGANIZATION`: use a chave da organização exibida nas configurações da organização ou na URL da organização no SonarCloud.
+- `SONARCLOUD_PROJECT_KEY`: use a chave do projeto nas configurações do projeto, geralmente em **Project Information** ou **General Settings**.
+
+Se você não tiver acesso à organização ou ao projeto no SonarCloud, peça esses valores para quem administra o workspace.
+
 Se você quiser que o SonarCloud também faça a decoração nativa do PR, isso acontece no próprio pipeline de análise do SonarCloud; este repositório apenas lê a API e publica os comentários.
 
 ### Suporte ao GitHub Enterprise Server
